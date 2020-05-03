@@ -1,0 +1,18 @@
+C:\Users\Alik\source\repos\wcftesting\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\Alik\source\repos\wcftesting\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Alik\source\repos\wcftesting\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\Alik\source\repos\wcftesting\Client\bin\Debug\Client.exe.config
+C:\Users\Alik\source\repos\wcftesting\Client\bin\Debug\Client.exe
+C:\Users\Alik\source\repos\wcftesting\Client\bin\Debug\Client.pdb
+C:\Users\Alik\source\repos\wcftesting\Client\obj\Debug\Client.exe
+C:\Users\Alik\source\repos\wcftesting\Client\obj\Debug\Client.pdb
+C:\Users\Alik\source\repos\wcftesting\Client\obj\Debug\Client.ClientTCP.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\bin\Debug\Client.exe.config
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\bin\Debug\Client.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\bin\Debug\Client.pdb
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\obj\Debug\Client.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\obj\Debug\Client.pdb
+C:\Users\Alik\Desktop\c#\Test c# Programs\Client\obj\Debug\Client.FirstPlayer.resources

@@ -1,0 +1,18 @@
+C:\Users\Alik\source\repos\wcftesting\Server\bin\Debug\Server.exe.config
+C:\Users\Alik\source\repos\wcftesting\Server\bin\Debug\Server.exe
+C:\Users\Alik\source\repos\wcftesting\Server\bin\Debug\Server.pdb
+C:\Users\Alik\source\repos\wcftesting\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\Alik\source\repos\wcftesting\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Alik\source\repos\wcftesting\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\Alik\source\repos\wcftesting\Server\obj\Debug\Server.exe
+C:\Users\Alik\source\repos\wcftesting\Server\obj\Debug\Server.pdb
+C:\Users\Alik\source\repos\wcftesting\Server\obj\Debug\Server.ServTCP.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\bin\Debug\Server.exe.config
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\bin\Debug\Server.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\bin\Debug\Server.pdb
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\obj\Debug\Server.ServTCP.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\obj\Debug\Server.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\Server\obj\Debug\Server.pdb

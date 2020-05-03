@@ -1,0 +1,9 @@
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\obj\Debug\SecondPlayer.csproj.GenerateResource.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\obj\Debug\SecondPlayer.csprojAssemblyReference.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\obj\Debug\SecondPlayer.SecondPlayer.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\bin\Debug\SecondPlayer.exe.config
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\bin\Debug\SecondPlayer.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\bin\Debug\SecondPlayer.pdb
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\obj\Debug\SecondPlayer.Properties.Resources.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\obj\Debug\SecondPlayer.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\SecondPlayer\obj\Debug\SecondPlayer.pdb
