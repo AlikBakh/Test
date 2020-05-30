@@ -1,6 +1,6 @@
 ﻿namespace Server
 {
-    partial class ServTCP
+    partial class Server
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ClearChat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonStart
@@ -156,17 +157,28 @@
             this.listBox1.Location = new System.Drawing.Point(292, 111);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(321, 145);
             this.listBox1.TabIndex = 10;
             this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             this.listBox1.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBox1_MeasureItem);
             // 
-            // ServTCP
+            // ClearChat
+            // 
+            this.ClearChat.Location = new System.Drawing.Point(503, 260);
+            this.ClearChat.Name = "ClearChat";
+            this.ClearChat.Size = new System.Drawing.Size(110, 28);
+            this.ClearChat.TabIndex = 11;
+            this.ClearChat.Text = "Очистить чат";
+            this.ClearChat.UseVisualStyleBackColor = true;
+            this.ClearChat.Click += new System.EventHandler(this.ClearChat_Click);
+            // 
+            // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 301);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(616, 292);
+            this.Controls.Add(this.ClearChat);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -181,10 +193,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "ServTCP";
+            this.Name = "Server";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cервер";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServTCP_FormClosing);
+            this.Load += new System.EventHandler(this.ServTCP_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +216,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button ClearChat;
     }
 }
 

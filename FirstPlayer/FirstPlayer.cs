@@ -1,213 +1,63 @@
 ﻿using System;
-using System.Net;
+using System.Drawing;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using System.Drawing;
 
 
 namespace FirstPlayer
 {
-    public partial class FirstPlayer : Form 
+    public partial class FirstPlayer : Form
     {
         public FirstPlayer()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             KeyPreview = true;
-
-            RockU2.Enabled = false;
-            ScissorsU2.Enabled = false;
-            PaperU2.Enabled = false;
-
-            User1Ask.Visible = false;
-            User2Ask.Visible = false;
+            SecondAsk.Visible = false;
+            FirstAsk.Visible = false;
 
             listBoxChat.HorizontalScrollbar = true;
+
+            Location = new Point(0, 0);
         }
+
         #region Сама игра
         void HotKeys_KeyDown(object sender, KeyEventArgs e)//горячме клавиши
         {
             if (e.KeyCode == Keys.Z)
             {
-                RockU1.PerformClick();// имитируем нажатие button1
+                Rock.PerformClick();// имитируем нажатие button1
             }
             if (e.KeyCode == Keys.X)
             {
-                ScissorsU1.PerformClick();// имитируем нажатие button1
+                Scissors.PerformClick();// имитируем нажатие button1
             }
             if (e.KeyCode == Keys.C)
             {
-                PaperU1.PerformClick();// имитируем нажатие button1
+                Paper.PerformClick();// имитируем нажатие button1
             }
         }
 
-        public int User1Choose = 0;//дальнейшее значение предмета у 1-го игрока будет записан в майчуз
-        public void RockU1_Click(object sender, EventArgs e)//камень
+        public int User1Choose;//дальнейшее значение предмета у 1-го игрока будет записан в майчуз
+        public void Rock_Click(object sender, EventArgs e)//камень
         {
             User1Choose = 1;
-            Score(User1Choose, User2Choose);
-
-            RockU1.Enabled = false;
-            ScissorsU1.Enabled = false;
-            PaperU1.Enabled = false;
-
-            RockU2.Enabled = true;
-            ScissorsU2.Enabled = true;
-            PaperU2.Enabled = true;
-
-            User1Ask.Visible = false;
-            User2Ask.Visible = false;
         }
-        public void ScissorsU1_Click(object sender, EventArgs e)//ножницы
+        public void Scissors_Click(object sender, EventArgs e)//ножницы
         {
             User1Choose = 2;
-            Score(User1Choose, User2Choose);
-
-            RockU1.Enabled = false;
-            ScissorsU1.Enabled = false;
-            PaperU1.Enabled = false;
-
-            RockU2.Enabled = true;
-            ScissorsU2.Enabled = true;
-            PaperU2.Enabled = true;
-
-            User1Ask.Visible = false;
-            User2Ask.Visible = false;
         }
-        public void PaperU1_Click(object sender, EventArgs e)//бумага
+        public void Paper_Click(object sender, EventArgs e)//бумага
         {
             User1Choose = 3;
-            Score(User1Choose, User2Choose);
-
-            RockU1.Enabled = false;
-            ScissorsU1.Enabled = false;
-            PaperU1.Enabled = false;
-
-            RockU2.Enabled = true;
-            ScissorsU2.Enabled = true;
-            PaperU2.Enabled = true;
-
-            User1Ask.Visible = false;
-            User2Ask.Visible = false;
         }
 
 
 
-        public int User2Choose = 0;//дальнейшее значение предмета у 2-го игрока будет записан в майчуз
-        public void RockU2_Click(object sender, EventArgs e)//камень
-        {
-            User2Choose = 1;
-            Score(User1Choose, User2Choose);
-
-            RockU2.Enabled = false;
-            ScissorsU2.Enabled = false;
-            PaperU2.Enabled = false;
-
-            RockU1.Enabled = true;
-            ScissorsU1.Enabled = true;
-            PaperU1.Enabled = true;
-
-            User1Ask.Visible = true;
-            User2Ask.Visible = true;
-        }
-        public void ScissorsU2_Click(object sender, EventArgs e)//ножницы
-        {
-            User2Choose = 2;
-            Score(User1Choose, User2Choose);
-
-            RockU2.Enabled = false;
-            ScissorsU2.Enabled = false;
-            PaperU2.Enabled = false;
-
-            RockU1.Enabled = true;
-            ScissorsU1.Enabled = true;
-            PaperU1.Enabled = true;
-
-            User1Ask.Visible = true;
-            User2Ask.Visible = true;
-        }
-        public void PaperU2_Click(object sender, EventArgs e)//бумага
-        {
-            User2Choose = 3;
-
-            Score(User1Choose, User2Choose);
-
-            RockU2.Enabled = false;
-            ScissorsU2.Enabled = false;
-            PaperU2.Enabled = false;
-
-            RockU1.Enabled = true;
-            ScissorsU1.Enabled = true;
-            PaperU1.Enabled = true;
-
-            User1Ask.Visible = true;
-            User2Ask.Visible = true;
-        }
-
-
-
-        public int User1Win;
-        public int User2Win;
-        public int Rounds;
-        public void Score(int user1, int user2)
-        {
-            if (User1Choose == 1)
-                User1Ask.Image = Properties.Resources.urock;
-            if (User1Choose == 2)
-                User1Ask.Image = Properties.Resources.uscissors;
-            if (User1Choose == 3)
-                User1Ask.Image = Properties.Resources.upaper;
-
-            if (User2Choose == 1)
-                User2Ask.Image = Properties.Resources.crock;
-            if (User2Choose == 2)
-                User2Ask.Image = Properties.Resources.csccissors;
-            if (User2Choose == 3)
-                User2Ask.Image = Properties.Resources.cpaper;
-
-            if (((User1Choose == 1) && (User2Choose == 2)) || ((User1Choose == 2) && (User2Choose == 3)) || ((User1Choose == 3) && (User2Choose == 1)))
-            {
-                User1Win++;
-                W.Text = User1Win.ToString();
-                User1Choose = 0;
-                User2Choose = 0;
-
-                RockU1.Enabled = true;
-                ScissorsU1.Enabled = true;
-                PaperU1.Enabled = true;
-
-                RockU2.Enabled = true;
-                ScissorsU2.Enabled = true;
-                PaperU2.Enabled = true;
-
-
-            }
-            if (((User1Choose == 2) && (User2Choose == 1)) || ((User1Choose == 3) && (User2Choose == 2)) || ((User1Choose == 1) && (User2Choose == 3)))
-            {
-                User2Win++;
-                L.Text = User2Win.ToString();
-                User1Choose = 0;
-                User2Choose = 0;
-
-                RockU1.Enabled = true;
-                ScissorsU1.Enabled = true;
-                PaperU1.Enabled = true;
-
-                RockU2.Enabled = true;
-                ScissorsU2.Enabled = true;
-                PaperU2.Enabled = true;
-            }
-            if (User1Choose == User2Choose)
-            {
-                Rounds++;
-                RoundCount.Text = Rounds.ToString();
-                User1Choose = 0;
-                User2Choose = 0;
-            }
-        }
-        #endregion
         
+        #endregion
+
 
         #region Управление клиентским приложением
         // Объект содержащий рабочий сокет клиентского приложения
@@ -226,6 +76,7 @@ namespace FirstPlayer
         private void buttonSend_Click(object sender, EventArgs e)
         {
             SendMessage();
+            textBoxSend.Clear();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -362,21 +213,27 @@ namespace FirstPlayer
         #region Перенос строки в листбоксе
 
 
-        private void listBox1_MeasureItem(object sender, MeasureItemEventArgs e)
+        private void listBoxChat_MeasureItem(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = (int)e.Graphics.MeasureString(listBoxChat.Items[e.Index].ToString(), listBoxChat.Font, listBoxChat.Width).Height;
         }
 
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void listBoxChat_DrawItem(object sender, DrawItemEventArgs e)
         {
+            listBoxChat.TopIndex = listBoxChat.Items.Count - 1;
             if (listBoxChat.Items.Count > 0)
             {
                 e.DrawBackground();
                 e.DrawFocusRectangle();
                 e.Graphics.DrawString(listBoxChat.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
             }
+
         }
         #endregion
 
+        private void ClearChat_Click(object sender, EventArgs e)
+        {
+            listBoxChat.Items.Clear();
+        }
     }
 }

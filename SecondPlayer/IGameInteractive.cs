@@ -10,7 +10,7 @@ namespace SecondPlayer
 
         void DisconnectGame();
         
-        void Score(int user1, int user2);
+       // void Score(int user1, int user2);
 
         //[OperationContract(IsOneWay = true)]
         //void Step1(Item User1Choose);

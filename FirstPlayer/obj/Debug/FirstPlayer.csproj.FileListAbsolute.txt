@@ -7,3 +7,12 @@ C:\Users\Alik\Desktop\c#\Test c# Programs\FirstPlayer\obj\Debug\FirstPlayer.Firs
 C:\Users\Alik\Desktop\c#\Test c# Programs\FirstPlayer\obj\Debug\FirstPlayer.Properties.Resources.resources
 C:\Users\Alik\Desktop\c#\Test c# Programs\FirstPlayer\obj\Debug\FirstPlayer.exe
 C:\Users\Alik\Desktop\c#\Test c# Programs\FirstPlayer\obj\Debug\FirstPlayer.pdb
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\bin\Debug\FirstPlayer.exe.config
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\bin\Debug\FirstPlayer.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\bin\Debug\FirstPlayer.pdb
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\obj\Debug\FirstPlayer.csprojAssemblyReference.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\obj\Debug\FirstPlayer.FirstPlayer.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\obj\Debug\FirstPlayer.Properties.Resources.resources
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\obj\Debug\FirstPlayer.csproj.GenerateResource.cache
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\obj\Debug\FirstPlayer.exe
+C:\Users\Alik\Desktop\c#\Test c# Programs\Test\FirstPlayer\obj\Debug\FirstPlayer.pdb

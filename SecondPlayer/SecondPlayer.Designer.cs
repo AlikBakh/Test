@@ -39,28 +39,27 @@
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.lblRound = new System.Windows.Forms.Label();
-            this.User2Ask = new System.Windows.Forms.PictureBox();
-            this.User1Ask = new System.Windows.Forms.PictureBox();
-            this.ConnectUser2 = new System.Windows.Forms.Label();
-            this.ConnectUser1 = new System.Windows.Forms.Label();
+            this.FirstAsk = new System.Windows.Forms.PictureBox();
+            this.SecondAsk = new System.Windows.Forms.PictureBox();
+            this.ConnectUserFirst = new System.Windows.Forms.Label();
+            this.ConnectUserSecond = new System.Windows.Forms.Label();
             this.ServerStatus = new System.Windows.Forms.Label();
             this.RoundCount = new System.Windows.Forms.Label();
-            this.L = new System.Windows.Forms.Label();
-            this.W = new System.Windows.Forms.Label();
-            this.RockU1 = new System.Windows.Forms.Button();
-            this.PaperU2 = new System.Windows.Forms.Button();
-            this.ScissorsU1 = new System.Windows.Forms.Button();
-            this.PaperU1 = new System.Windows.Forms.Button();
-            this.RockU2 = new System.Windows.Forms.Button();
-            this.ScissorsU2 = new System.Windows.Forms.Button();
+            this.WinFirst = new System.Windows.Forms.Label();
+            this.WinSecond = new System.Windows.Forms.Label();
+            this.Rock = new System.Windows.Forms.Button();
+            this.Scissors = new System.Windows.Forms.Button();
+            this.Paper = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.User2Ask)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.User1Ask)).BeginInit();
+            this.ClearChat = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstAsk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SecondAsk)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxChat
             // 
             this.listBoxChat.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.listBoxChat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listBoxChat.FormattingEnabled = true;
             this.listBoxChat.ItemHeight = 16;
             this.listBoxChat.Items.AddRange(new object[] {
@@ -70,11 +69,10 @@
             this.listBoxChat.Location = new System.Drawing.Point(641, 27);
             this.listBoxChat.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxChat.Name = "listBoxChat";
-            this.listBoxChat.ScrollAlwaysVisible = true;
             this.listBoxChat.Size = new System.Drawing.Size(331, 148);
             this.listBoxChat.TabIndex = 88;
-            this.listBoxChat.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
-            this.listBoxChat.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBox1_MeasureItem);
+            this.listBoxChat.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxChat_DrawItem);
+            this.listBoxChat.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBoxChat_MeasureItem);
             // 
             // lblChat
             // 
@@ -107,7 +105,7 @@
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(356, 183);
+            this.buttonSend.Location = new System.Drawing.Point(533, 183);
             this.buttonSend.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(100, 28);
@@ -119,7 +117,7 @@
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(3, 95);
+            this.lblPort.Location = new System.Drawing.Point(0, 70);
             this.lblPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPort.Name = "lblPort";
             this.lblPort.Size = new System.Drawing.Size(94, 17);
@@ -129,7 +127,7 @@
             // lblAdrIP
             // 
             this.lblAdrIP.AutoSize = true;
-            this.lblAdrIP.Location = new System.Drawing.Point(3, 55);
+            this.lblAdrIP.Location = new System.Drawing.Point(0, 30);
             this.lblAdrIP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdrIP.Name = "lblAdrIP";
             this.lblAdrIP.Size = new System.Drawing.Size(121, 17);
@@ -138,7 +136,7 @@
             // 
             // buttonConnect
             // 
-            this.buttonConnect.Location = new System.Drawing.Point(143, 147);
+            this.buttonConnect.Location = new System.Drawing.Point(140, 122);
             this.buttonConnect.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(133, 28);
@@ -149,7 +147,7 @@
             // 
             // textBoxPort
             // 
-            this.textBoxPort.Location = new System.Drawing.Point(143, 91);
+            this.textBoxPort.Location = new System.Drawing.Point(140, 66);
             this.textBoxPort.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(132, 22);
@@ -159,7 +157,7 @@
             // 
             // textBoxIP
             // 
-            this.textBoxIP.Location = new System.Drawing.Point(143, 52);
+            this.textBoxIP.Location = new System.Drawing.Point(140, 27);
             this.textBoxIP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(132, 22);
@@ -170,60 +168,60 @@
             // lblRound
             // 
             this.lblRound.AutoSize = true;
-            this.lblRound.Location = new System.Drawing.Point(353, 241);
+            this.lblRound.Location = new System.Drawing.Point(402, 215);
             this.lblRound.Name = "lblRound";
             this.lblRound.Size = new System.Drawing.Size(54, 17);
             this.lblRound.TabIndex = 78;
             this.lblRound.Text = "Round:";
             // 
-            // User2Ask
+            // FirstAsk
             // 
-            this.User2Ask.ErrorImage = null;
-            this.User2Ask.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.User2Ask.InitialImage = null;
-            this.User2Ask.Location = new System.Drawing.Point(453, 273);
-            this.User2Ask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.User2Ask.Name = "User2Ask";
-            this.User2Ask.Size = new System.Drawing.Size(197, 149);
-            this.User2Ask.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.User2Ask.TabIndex = 77;
-            this.User2Ask.TabStop = false;
+            this.FirstAsk.ErrorImage = null;
+            this.FirstAsk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.FirstAsk.InitialImage = null;
+            this.FirstAsk.Location = new System.Drawing.Point(502, 247);
+            this.FirstAsk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FirstAsk.Name = "FirstAsk";
+            this.FirstAsk.Size = new System.Drawing.Size(197, 149);
+            this.FirstAsk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FirstAsk.TabIndex = 77;
+            this.FirstAsk.TabStop = false;
             // 
-            // User1Ask
+            // SecondAsk
             // 
-            this.User1Ask.ErrorImage = null;
-            this.User1Ask.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.User1Ask.InitialImage = null;
-            this.User1Ask.Location = new System.Drawing.Point(119, 273);
-            this.User1Ask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.User1Ask.Name = "User1Ask";
-            this.User1Ask.Size = new System.Drawing.Size(197, 149);
-            this.User1Ask.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.User1Ask.TabIndex = 76;
-            this.User1Ask.TabStop = false;
+            this.SecondAsk.ErrorImage = null;
+            this.SecondAsk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SecondAsk.InitialImage = null;
+            this.SecondAsk.Location = new System.Drawing.Point(168, 247);
+            this.SecondAsk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SecondAsk.Name = "SecondAsk";
+            this.SecondAsk.Size = new System.Drawing.Size(197, 149);
+            this.SecondAsk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SecondAsk.TabIndex = 76;
+            this.SecondAsk.TabStop = false;
             // 
-            // ConnectUser2
+            // ConnectUserFirst
             // 
-            this.ConnectUser2.AutoSize = true;
-            this.ConnectUser2.Location = new System.Drawing.Point(545, 241);
-            this.ConnectUser2.Name = "ConnectUser2";
-            this.ConnectUser2.Size = new System.Drawing.Size(51, 17);
-            this.ConnectUser2.TabIndex = 75;
-            this.ConnectUser2.Text = "Enemy";
+            this.ConnectUserFirst.AutoSize = true;
+            this.ConnectUserFirst.Location = new System.Drawing.Point(620, 216);
+            this.ConnectUserFirst.Name = "ConnectUserFirst";
+            this.ConnectUserFirst.Size = new System.Drawing.Size(79, 17);
+            this.ConnectUserFirst.TabIndex = 75;
+            this.ConnectUserFirst.Text = "First Player";
             // 
-            // ConnectUser1
+            // ConnectUserSecond
             // 
-            this.ConnectUser1.AutoSize = true;
-            this.ConnectUser1.Location = new System.Drawing.Point(116, 242);
-            this.ConnectUser1.Name = "ConnectUser1";
-            this.ConnectUser1.Size = new System.Drawing.Size(33, 17);
-            this.ConnectUser1.TabIndex = 74;
-            this.ConnectUser1.Text = "You";
+            this.ConnectUserSecond.AutoSize = true;
+            this.ConnectUserSecond.Location = new System.Drawing.Point(165, 216);
+            this.ConnectUserSecond.Name = "ConnectUserSecond";
+            this.ConnectUserSecond.Size = new System.Drawing.Size(33, 17);
+            this.ConnectUserSecond.TabIndex = 74;
+            this.ConnectUserSecond.Text = "You";
             // 
             // ServerStatus
             // 
             this.ServerStatus.AutoSize = true;
-            this.ServerStatus.Location = new System.Drawing.Point(820, 457);
+            this.ServerStatus.Location = new System.Drawing.Point(820, 405);
             this.ServerStatus.Name = "ServerStatus";
             this.ServerStatus.Size = new System.Drawing.Size(152, 17);
             this.ServerStatus.TabIndex = 73;
@@ -232,105 +230,86 @@
             // RoundCount
             // 
             this.RoundCount.AutoSize = true;
-            this.RoundCount.Location = new System.Drawing.Point(410, 241);
+            this.RoundCount.Location = new System.Drawing.Point(459, 215);
             this.RoundCount.Name = "RoundCount";
             this.RoundCount.Size = new System.Drawing.Size(16, 17);
             this.RoundCount.TabIndex = 72;
             this.RoundCount.Text = "0";
             // 
-            // L
+            // WinFirst
             // 
-            this.L.AutoSize = true;
-            this.L.Location = new System.Drawing.Point(418, 343);
-            this.L.Name = "L";
-            this.L.Size = new System.Drawing.Size(16, 17);
-            this.L.TabIndex = 71;
-            this.L.Text = "0";
+            this.WinFirst.AutoSize = true;
+            this.WinFirst.Location = new System.Drawing.Point(467, 317);
+            this.WinFirst.Name = "WinFirst";
+            this.WinFirst.Size = new System.Drawing.Size(16, 17);
+            this.WinFirst.TabIndex = 71;
+            this.WinFirst.Text = "0";
             // 
-            // W
+            // WinSecond
             // 
-            this.W.AutoSize = true;
-            this.W.Location = new System.Drawing.Point(353, 343);
-            this.W.Name = "W";
-            this.W.Size = new System.Drawing.Size(16, 17);
-            this.W.TabIndex = 70;
-            this.W.Text = "0";
+            this.WinSecond.AutoSize = true;
+            this.WinSecond.Location = new System.Drawing.Point(402, 317);
+            this.WinSecond.Name = "WinSecond";
+            this.WinSecond.Size = new System.Drawing.Size(16, 17);
+            this.WinSecond.TabIndex = 70;
+            this.WinSecond.Text = "0";
             // 
-            // RockU1
+            // Rock
             // 
-            this.RockU1.Location = new System.Drawing.Point(1, 296);
-            this.RockU1.Name = "RockU1";
-            this.RockU1.Size = new System.Drawing.Size(75, 23);
-            this.RockU1.TabIndex = 67;
-            this.RockU1.Text = "Rock";
-            this.RockU1.UseVisualStyleBackColor = true;
-            this.RockU1.Click += new System.EventHandler(this.RockU1_Click);
+            this.Rock.Location = new System.Drawing.Point(50, 270);
+            this.Rock.Name = "Rock";
+            this.Rock.Size = new System.Drawing.Size(75, 23);
+            this.Rock.TabIndex = 67;
+            this.Rock.Text = "Rock";
+            this.Rock.UseVisualStyleBackColor = true;
+            this.Rock.Click += new System.EventHandler(this.Rock_Click);
             // 
-            // PaperU2
+            // Scissors
             // 
-            this.PaperU2.Location = new System.Drawing.Point(699, 378);
-            this.PaperU2.Name = "PaperU2";
-            this.PaperU2.Size = new System.Drawing.Size(75, 23);
-            this.PaperU2.TabIndex = 66;
-            this.PaperU2.Text = "Paper";
-            this.PaperU2.UseVisualStyleBackColor = true;
-            this.PaperU2.Click += new System.EventHandler(this.PaperU2_Click);
+            this.Scissors.Location = new System.Drawing.Point(50, 311);
+            this.Scissors.Name = "Scissors";
+            this.Scissors.Size = new System.Drawing.Size(75, 23);
+            this.Scissors.TabIndex = 65;
+            this.Scissors.Text = "Scissors";
+            this.Scissors.UseVisualStyleBackColor = true;
+            this.Scissors.Click += new System.EventHandler(this.Scissors_Click);
             // 
-            // ScissorsU1
+            // Paper
             // 
-            this.ScissorsU1.Location = new System.Drawing.Point(1, 337);
-            this.ScissorsU1.Name = "ScissorsU1";
-            this.ScissorsU1.Size = new System.Drawing.Size(75, 23);
-            this.ScissorsU1.TabIndex = 65;
-            this.ScissorsU1.Text = "Scissors";
-            this.ScissorsU1.UseVisualStyleBackColor = true;
-            this.ScissorsU1.Click += new System.EventHandler(this.ScissorsU1_Click);
-            // 
-            // PaperU1
-            // 
-            this.PaperU1.Location = new System.Drawing.Point(1, 378);
-            this.PaperU1.Name = "PaperU1";
-            this.PaperU1.Size = new System.Drawing.Size(75, 23);
-            this.PaperU1.TabIndex = 69;
-            this.PaperU1.Text = "Paper";
-            this.PaperU1.UseVisualStyleBackColor = true;
-            this.PaperU1.Click += new System.EventHandler(this.PaperU1_Click);
-            // 
-            // RockU2
-            // 
-            this.RockU2.Location = new System.Drawing.Point(699, 296);
-            this.RockU2.Name = "RockU2";
-            this.RockU2.Size = new System.Drawing.Size(75, 23);
-            this.RockU2.TabIndex = 64;
-            this.RockU2.Text = "Rock";
-            this.RockU2.UseVisualStyleBackColor = true;
-            this.RockU2.Click += new System.EventHandler(this.RockU2_Click);
-            // 
-            // ScissorsU2
-            // 
-            this.ScissorsU2.Location = new System.Drawing.Point(699, 337);
-            this.ScissorsU2.Name = "ScissorsU2";
-            this.ScissorsU2.Size = new System.Drawing.Size(75, 23);
-            this.ScissorsU2.TabIndex = 68;
-            this.ScissorsU2.Text = "Scissors";
-            this.ScissorsU2.UseVisualStyleBackColor = true;
-            this.ScissorsU2.Click += new System.EventHandler(this.ScissorsU2_Click);
+            this.Paper.Location = new System.Drawing.Point(50, 352);
+            this.Paper.Name = "Paper";
+            this.Paper.Size = new System.Drawing.Size(75, 23);
+            this.Paper.TabIndex = 69;
+            this.Paper.Text = "Paper";
+            this.Paper.UseVisualStyleBackColor = true;
+            this.Paper.Click += new System.EventHandler(this.Paper_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(353, 242);
+            this.label6.Location = new System.Drawing.Point(402, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 17);
             this.label6.TabIndex = 89;
             this.label6.Text = "_________";
+            // 
+            // ClearChat
+            // 
+            this.ClearChat.Location = new System.Drawing.Point(862, 183);
+            this.ClearChat.Name = "ClearChat";
+            this.ClearChat.Size = new System.Drawing.Size(110, 28);
+            this.ClearChat.TabIndex = 90;
+            this.ClearChat.Text = "Очистить чат";
+            this.ClearChat.UseVisualStyleBackColor = true;
+            this.ClearChat.Click += new System.EventHandler(this.ClearChat_Click);
             // 
             // SecondPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(986, 483);
+            this.ClientSize = new System.Drawing.Size(986, 426);
+            this.Controls.Add(this.ClearChat);
             this.Controls.Add(this.listBoxChat);
             this.Controls.Add(this.lblChat);
             this.Controls.Add(this.lblSendMsg);
@@ -342,27 +321,24 @@
             this.Controls.Add(this.textBoxPort);
             this.Controls.Add(this.textBoxIP);
             this.Controls.Add(this.lblRound);
-            this.Controls.Add(this.User2Ask);
-            this.Controls.Add(this.User1Ask);
-            this.Controls.Add(this.ConnectUser2);
-            this.Controls.Add(this.ConnectUser1);
+            this.Controls.Add(this.FirstAsk);
+            this.Controls.Add(this.SecondAsk);
+            this.Controls.Add(this.ConnectUserFirst);
+            this.Controls.Add(this.ConnectUserSecond);
             this.Controls.Add(this.ServerStatus);
             this.Controls.Add(this.RoundCount);
-            this.Controls.Add(this.L);
-            this.Controls.Add(this.W);
-            this.Controls.Add(this.RockU1);
-            this.Controls.Add(this.PaperU2);
-            this.Controls.Add(this.ScissorsU1);
-            this.Controls.Add(this.PaperU1);
-            this.Controls.Add(this.RockU2);
-            this.Controls.Add(this.ScissorsU2);
+            this.Controls.Add(this.WinFirst);
+            this.Controls.Add(this.WinSecond);
+            this.Controls.Add(this.Rock);
+            this.Controls.Add(this.Scissors);
+            this.Controls.Add(this.Paper);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "SecondPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Second Player";
-            ((System.ComponentModel.ISupportInitialize)(this.User2Ask)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.User1Ask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstAsk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SecondAsk)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,32 +346,30 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxChat;
-        private System.Windows.Forms.Label lblChat;
-        private System.Windows.Forms.Label lblSendMsg;
-        private System.Windows.Forms.TextBox textBoxSend;
-        private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.Label lblPort;
-        private System.Windows.Forms.Label lblAdrIP;
-        private System.Windows.Forms.Button buttonConnect;
-        private System.Windows.Forms.TextBox textBoxPort;
-        private System.Windows.Forms.TextBox textBoxIP;
-        private System.Windows.Forms.Label lblRound;
-        private System.Windows.Forms.PictureBox User2Ask;
-        private System.Windows.Forms.PictureBox User1Ask;
-        private System.Windows.Forms.Label ConnectUser2;
-        private System.Windows.Forms.Label ConnectUser1;
+        public System.Windows.Forms.ListBox listBoxChat;
+        public System.Windows.Forms.Label lblChat;
+        public System.Windows.Forms.Label lblSendMsg;
+        public System.Windows.Forms.TextBox textBoxSend;
+        public System.Windows.Forms.Button buttonSend;
+        public System.Windows.Forms.Label lblPort;
+        public System.Windows.Forms.Label lblAdrIP;
+        public System.Windows.Forms.Button buttonConnect;
+        public System.Windows.Forms.TextBox textBoxPort;
+        public System.Windows.Forms.TextBox textBoxIP;
+        public System.Windows.Forms.Label lblRound;
+        public System.Windows.Forms.PictureBox FirstAsk;
+        public System.Windows.Forms.PictureBox SecondAsk;
+        public System.Windows.Forms.Label ConnectUserFirst;         
+        public System.Windows.Forms.Label ConnectUserSecond;        
         public System.Windows.Forms.Label ServerStatus;
-        private System.Windows.Forms.Label RoundCount;
-        private System.Windows.Forms.Label L;
-        private System.Windows.Forms.Label W;
-        private System.Windows.Forms.Button RockU1;
-        private System.Windows.Forms.Button PaperU2;
-        private System.Windows.Forms.Button ScissorsU1;
-        private System.Windows.Forms.Button PaperU1;
-        private System.Windows.Forms.Button RockU2;
-        private System.Windows.Forms.Button ScissorsU2;
-        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label RoundCount;
+        public System.Windows.Forms.Label WinFirst;     
+        public System.Windows.Forms.Label WinSecond;    
+        public System.Windows.Forms.Button Rock;
+        public System.Windows.Forms.Button Scissors;
+        public System.Windows.Forms.Button Paper;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Button ClearChat;
     }
 }
 
